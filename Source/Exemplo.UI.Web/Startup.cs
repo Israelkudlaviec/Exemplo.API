@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Exemplo.UI.Web.Data;
 using Exemplo.UI.Web.Models;
 using Exemplo.UI.Web.Services;
+using Exemplo.Infra.Data;
 
 namespace Exemplo.UI.Web
 {
@@ -32,6 +33,10 @@ namespace Exemplo.UI.Web
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+
+            services.AddDbContext<ContextDb>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
