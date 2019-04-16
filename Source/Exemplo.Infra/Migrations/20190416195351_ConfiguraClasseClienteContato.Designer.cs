@@ -11,9 +11,10 @@ using System;
 namespace Exemplo.Infra.Migrations
 {
     [DbContext(typeof(ContextDb))]
-    partial class ContextDbModelSnapshot : ModelSnapshot
+    [Migration("20190416195351_ConfiguraClasseClienteContato")]
+    partial class ConfiguraClasseClienteContato
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

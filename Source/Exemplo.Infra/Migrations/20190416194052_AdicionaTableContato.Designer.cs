@@ -11,9 +11,10 @@ using System;
 namespace Exemplo.Infra.Migrations
 {
     [DbContext(typeof(ContextDb))]
-    partial class ContextDbModelSnapshot : ModelSnapshot
+    [Migration("20190416194052_AdicionaTableContato")]
+    partial class AdicionaTableContato
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,13 +26,9 @@ namespace Exemplo.Infra.Migrations
                     b.Property<int>("ClienteID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasColumnType("varchar(11)");
+                    b.Property<string>("Cpf");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
+                    b.Property<string>("Nome");
 
                     b.HasKey("ClienteID");
 
@@ -45,16 +42,11 @@ namespace Exemplo.Infra.Migrations
 
                     b.Property<int>("ClienteID");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
+                    b.Property<string>("Email");
 
-                    b.Property<string>("NomeContato")
-                        .IsRequired()
-                        .HasColumnType("varchar(200)");
+                    b.Property<string>("NomeContato");
 
-                    b.Property<string>("Telefone")
-                        .HasColumnType("varchar(15)");
+                    b.Property<string>("Telefone");
 
                     b.HasKey("ContatoID");
 
